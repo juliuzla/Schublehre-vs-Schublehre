@@ -1,6 +1,5 @@
 import pandas as pd
-import math
-import scipy
+import math 
 
 Data = pd.read_table(r'Schublehre vs Schublehre.txt')
 
