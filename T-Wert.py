@@ -40,5 +40,3 @@ print(stanDev(RoterSteinAnalog))
 
 print(mean(RoterSteinDigital))
 print(stanDev(RoterSteinDigital))
-
-#Hallo Welt
