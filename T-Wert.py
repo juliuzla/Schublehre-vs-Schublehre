@@ -1,6 +1,5 @@
 import pandas as pd
 import math
-import scipy
 
 Data = pd.read_table(r'Schublehre vs Schublehre.txt')
 
@@ -41,5 +40,3 @@ print(stanDev(RoterSteinAnalog))
 
 print(mean(RoterSteinDigital))
 print(stanDev(RoterSteinDigital))
-
-#Hallo Welt
