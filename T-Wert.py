@@ -2,9 +2,10 @@ import pandas as pd
 import math
 import scipy.integrate
 import scipy.stats
-import numpy as np
 
 Data = pd.read_table(r'Schublehre vs Schublehre.txt')
+
+#Daten als Array
 
 RoterSteinAnalog = Data['Roter Stein, analoge Schublehre']
 
@@ -32,20 +33,8 @@ def T_Wert(values1, values2): #Funktion zur Berechnung des T-Werts
 
     return math.sqrt(n/((stanDev(values1))**2+(stanDev(values2))**2))*(mean(values1)-mean(values2))
 
-"""
-def tdist(f, t):
-
-     return math.gamma((f+1)/2)/(math.sqrt(f*math.pi)*math.gamma(f/2))*(1+t**2/f)**(-(f+1)/2)
-
-def pvalue(f):
-
-    return scipy.integrate.quad(tdist, T_Wert(RoterSteinAnalog, RoterSteinDigital), np.inf, args=(f))
-"""
-
-#zwei Seitiger T-Test
-
 #Signifikantsniveau = 0.05
 
-print(T_Wert(RoterSteinDigital, RoterSteinAnalog))
+print(T_Wert(RoterSteinDigital, RoterSteinAnalog)) #gibt T-Wert aus
 
-print(scipy.stats.ttest_rel(RoterSteinDigital, RoterSteinAnalog))
+print(scipy.stats.ttest_rel(RoterSteinDigital, RoterSteinAnalog)) #berechnet P-Wert und gibt ihn aus
