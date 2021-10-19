@@ -11,6 +11,10 @@ RoterSteinAnalog = Data['Roter Stein, analoge Schublehre']
 
 RoterSteinDigital = Data['Roter Stein, digitale Schublehre']
 
+GelberSteinAnalog = Data['Gelber Stein, analoge Schublehre']
+
+GelberSteinDigital = Data['Gelber Stein, digitale Schublehre']
+
 def mean(values): #Funktion zur Berechnung des Mittelwerts
     
     return sum(values)/len(values)
@@ -37,4 +41,16 @@ def T_Wert(values1, values2): #Funktion zur Berechnung des T-Werts
 
 print(T_Wert(RoterSteinDigital, RoterSteinAnalog)) #gibt T-Wert aus
 
-print(scipy.stats.ttest_rel(RoterSteinDigital, RoterSteinAnalog)) #berechnet P-Wert und gibt ihn aus
+print(scipy.stats.ttest_ind_from_stats(
+    mean(RoterSteinDigital), stanDev(RoterSteinDigital),len(RoterSteinDigital)
+    ,mean(RoterSteinAnalog), stanDev(RoterSteinAnalog),len(RoterSteinAnalog)
+    ,alternative='two-sided'
+)) #berechnet P-Wert und gibt ihn aus
+
+print(T_Wert(GelberSteinDigital, GelberSteinAnalog))
+
+print(scipy.stats.ttest_ind_from_stats(
+    mean(GelberSteinDigital), stanDev(GelberSteinDigital),len(GelberSteinDigital)
+    ,mean(GelberSteinAnalog), stanDev(GelberSteinAnalog),len(GelberSteinAnalog)
+    ,alternative='two-sided'
+)) #berechnet P-Wert und gibt ihn aus
